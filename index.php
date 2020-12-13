@@ -2,13 +2,13 @@
 
 <html>
 
-<?php 
+<?php
 include("head.php");
 include("connect.php");
 ?>
 
 <body class="hold-transition skin-blue sidebar-mini">
-<?php 
+<?php
 
 include_once("auth.php");
 
@@ -17,6 +17,11 @@ $r=$_SESSION['SESS_LAST_NAME'];
 if($r =='caller'){
 header("location: call.php");
 }
+
+if($r =='customer'){
+header("location: cus_index.php");
+}
+
 if($r =='Cashier'){
 
 
@@ -63,7 +68,7 @@ include_once("sidebar.php");
 
       </h1>
 
-      
+
 
     </section>
 
@@ -76,13 +81,13 @@ include_once("sidebar.php");
 
 	 <div class="row">
 
-	 
 
-	 
 
-	 
 
-	 
+
+
+
+
 
 	 <?php     $r=$_SESSION['SESS_LAST_NAME'];
 
@@ -92,7 +97,7 @@ if($r =='Cashier'){
 
 	?>
 
-	
+
 
 <?php }
 
@@ -102,13 +107,13 @@ else{
 
  ?>
 
-	 
 
-	 
 
-	 
 
-	 
+
+
+
+
 
         <div class="col-lg-3 col-xs-6">
 
@@ -232,15 +237,15 @@ else{
 
       </div>
 
-	<?php 
+	<?php
 
 }
 
  ?>
 
-	
 
-	
+
+
 
       <!-- SELECT2 EXAMPLE -->
 
@@ -252,7 +257,7 @@ else{
 
 
  <table id="example1" class="table table-bordered table-striped">
-			  
+
                 <thead>
                 <tr>
                   <th>Order Id</th>
@@ -264,9 +269,9 @@ else{
 				<th>Amount</th>
                   <th>#</th>
                 </tr>
-				
+
                 </thead>
-				
+
                 <tbody>
 				<?php
 
@@ -274,10 +279,10 @@ else{
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
-				
-				
-				
-				
+
+
+
+
 			?>
                 <tr>
 				  <td><?php echo $row['id'];?></td>
@@ -289,53 +294,53 @@ else{
 				<td><?php echo $row['amount'];?></td>
                   <td>
 <?php  $action=$row['action']; if($action=="0"){?><a href="sales.php?id=<?php echo $row['id'];?>"><button class="btn btn-info">Bill</button></a>
-		<?php } ?>			
+		<?php } ?>
 					</td>
-				  
-				  
-				  
-				   <?php 
-					
+
+
+
+				   <?php
+
 				}
-				
+
 				?>
                 </tr>
-               
-                
+
+
                 </tbody>
                 <tfoot>
-                
-				
-				
-				
-				
-				
-				
+
+
+
+
+
+
+
                 </tfoot>
               </table>
-		
+
 
 		  </div>
 
 		  </div>
 
-		
 
-		
 
-		
 
-		
 
-		
 
-		
 
-		
 
-		
 
-	
+
+
+
+
+
+
+
+
+
 
   </div>
 
@@ -434,7 +439,7 @@ else{
 
       datasets: [
 
-        
+
 
       ]
 
@@ -773,4 +778,3 @@ else{
 </body>
 
 </html>
-
