@@ -7,7 +7,7 @@ include("head.php");
 include("connect.php");
 ?>
 
-<body class="hold-transition skin-blue sidebar-mini">
+<body class=" hold-transition skin-blue layout-top-nav ">
 <?php
 
 include_once("auth.php");
@@ -23,17 +23,22 @@ header("location: cus_index.php");
 }
 
 if($r =='Cashier'){
-include_once("sidebar2.php");
-}
 
-if($r =='admin'){
-include_once("sidebar.php");
+
+
+include_once("sidebar2.php");
+
 }
 
 if($r =='user'){
-header("location: index2.php");
+
+
+
+include_once("sidebar2.php");
+
 }
 
+  $cus_id=$_SESSION['MEMBER_ID'];
 ?>
 
 
@@ -117,11 +122,11 @@ else{
 
             <div class="inner">
 
-              <h3>Rs.<?php // echo $amount; ?></h3>
+              <h3><?php // echo $amount; ?></h3>
 
 
 
-              <p>Total Sales</p>
+              <p>Pending</p>
 
             </div>
 
@@ -147,11 +152,11 @@ else{
 
             <div class="inner">
 
-              <h3>Rs.<?php // echo $profit; ?></sup></h3>
+              <h3><?php // echo $profit; ?></sup></h3>
 
 
 
-              <p>Total Profit </p>
+              <p>Total Cancel Orders </p>
 
             </div>
 
@@ -269,7 +274,7 @@ else{
                 <tbody>
 				<?php
 
-   $result = $db->prepare("SELECT * FROM pick_order   ");
+   $result = $db->prepare("SELECT * FROM pick_order WHERE pick_id='$cus_id'  ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
@@ -286,10 +291,7 @@ else{
                   <td><?php echo $row['pick_name'];?></td>
 				  <td><?php echo $row['kg'];?></td>
 				<td><?php echo $row['amount'];?></td>
-                  <td>
-<?php  $action=$row['action']; if($action=="0"){?><a href="sales.php?id=<?php echo $row['id'];?>"><button class="btn btn-info">Bill</button></a>
-		<?php } ?>
-					</td>
+                  <td></td>
 
 
 
