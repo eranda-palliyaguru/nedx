@@ -4,9 +4,93 @@
 include("head.php");
 include("connect.php");
 ?>
-<body class="hold-transition skin-blue sidebar-mini">
-<?php
+<body class="hold-transition skin-blue layout-top-nav">
+  <?php
 include_once("auth.php");
+include('connect.php');
+date_default_timezone_set("Asia/Colombo");
+              $date =  date("Y-m-d");
+
+  ?>
+
+  <div class="wrapper">
+
+  <header class="main-header">
+    <nav class="navbar navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="index2.php" class="navbar-brand"><b>NED</b>X</a>
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <i class="fa fa-bars"></i>
+          </button>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li ><a href="index2.php">Dashboard </a></li>
+            <li class="active"><a href="cus_order_add.php">New Orders</a></li>
+
+          </ul>
+
+        </div>
+        <!-- /.navbar-collapse -->
+        <!-- Navbar Right Menu -->
+        <div class="navbar-custom-menu">
+          <ul class="nav navbar-nav">
+            <!-- Messages: style can be found in dropdown.less-->
+
+            <!-- /.messages-menu -->
+
+            <!-- Notifications Menu -->
+
+
+            <!-- User Account Menu -->
+            <li class="dropdown user user-menu">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image">
+                <span class="hidden-xs"><?php echo $_SESSION['SESS_FIRST_NAME'];?></span>
+              </a>
+              <ul class="dropdown-menu">
+                <!-- User image -->
+                <li class="user-header">
+                  <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+
+                  <p>    <?php echo $_SESSION['SESS_FIRST_NAME'];?> - <?php echo $_SESSION['SESS_LAST_NAME'];?>
+                    <small>Member</small>
+                  </p>
+                </li>
+                <!-- Menu Body -->
+                <li class="user-body">
+                  <div class="row">
+
+                    <div class="col-xs-4 text-center">
+                      <a href="#">Sales</a>
+                    </div>
+
+                  </div>
+                  <!-- /.row -->
+                </li>
+                <!-- Menu Footer-->
+                <li class="user-footer">
+                  <div class="pull-left">
+                    <a href="#" class="btn btn-default btn-flat">Profile</a>
+                  </div>
+                  <div class="pull-right">
+                    <a href=" ../../../index.php" class="btn btn-default btn-flat">Sign out</a>
+                  </div>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-custom-menu -->
+      </div>
+      <!-- /.container-fluid -->
+    </nav>
+  </header>
+<?php
+
 $r=$_SESSION['SESS_LAST_NAME'];
 
 if($r =='Cashier'){
