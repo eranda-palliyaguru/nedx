@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<?php 
+<?php
 include("head.php");
 include("connect.php");
 ?>
 <body class="hold-transition skin-blue sidebar-mini">
-<?php 
+<?php
 include_once("auth.php");
 $r=$_SESSION['SESS_LAST_NAME'];
 
@@ -28,11 +28,11 @@ include_once("sidebar.php");
     <script src="datepicker.ui.min.js"
         type="text/javascript"></script>
  <script type="text/javascript">
-     
+
 		 $(function(){
         $("#datepicker1").datepicker({ dateFormat: 'yy/mm/dd' });
         $("#datepicker2").datepicker({ dateFormat: 'yy/mm/dd' });
-       
+
     });
 
     </script>
@@ -60,70 +60,26 @@ include_once("sidebar.php");
 
     <!-- Main content -->
     <section class="content">
-<a rel="facebox" href="model.php" class="btn btn-info">Add Model</a>
+
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-info">
         <div class="box-header with-border">
           <h3 class="box-title">Add Customer</h3>
 
-          
+
         <!-- /.box-header -->
 		<div class="form-group">
-              
-		<form method="post" action="save_cus.php">
-		
+
+		<form method="post" action="cus_save.php">
+
         <div class="box-body">
-         
-	   				  
-											  
+
+
+
       <!-- /.box -->
 <div class="form-group">
-              
-		
-	<div class="box-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>	Vehicle Number</label>
-				  <div class="input-group">
-				   <div class="input-group-addon">
-                    <i class="fa fa-motorcycle"></i>
-                  </div>
-                <input type="text" name="vehicle_no"  class="form-control" data-inputmask='"mask": "AAA-9999"' data-mask required>
-                  </div>
-                  </div>
-				</div>
-			  
-			  <div class="form-group">
-               <label>Model</label>
 
-                <div class="input-group date">
-                  <div class="input-group-addon">
-                    <i class="fa fa-arrow-down"></i>
-                  </div>
-                  <select class="form-control select2" name="model" style="width: 100%;" autofocus >
-                  
-                  
-				  <?php
-                $result = $db->prepare("SELECT * FROM model ");
-		$result->bindParam(':userid', $res);
-		$result->execute();
-		for($i=0; $row = $result->fetch(); $i++){
-	?>
-		<option value="<?php echo $row['name'];?>"><?php echo $row['name']; ?>    </option>
-	<?php
-				}
-			?>
-                </select>
-				  
-                </div>
-				
-        
-		
-        </div>
-              </div>
-		</div>	
-	
+
         <div class="box-body">
           <div class="row">
             <div class="col-md-6">
@@ -137,7 +93,7 @@ include_once("sidebar.php");
                   </div>
                   </div>
 				</div>
-			  
+
 			   <div class="form-group">
                 <label>	Phone Number</label>
 				  <div class="input-group">
@@ -147,46 +103,15 @@ include_once("sidebar.php");
                 <input type="text" class="form-control" name="phone_no" data-inputmask='"mask": "(999)-9999999"' data-mask>
                   </div>
                   </div>
-			  
+
               </div>
               </div>
-	
-	
-	
-	<div class="box-body">
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Birthday</label>
-                 <div class="input-group">
-				   <div class="input-group-addon">
-                    <i class="fa fa-odnoklassniki"></i>
-                  </div>
-                <input type="text" name="birthday"  class="form-control pull-right" data-inputmask='"mask": "9999-99-99"' data-mask >
-                  </div>  
-                  </div>
-				</div>
-			  
-			  
-			  <div class="form-group">
-                <label>	gender</label>
-				  <div class="input-group">
-				   <div class="input-group-addon">
-                    <i class="fa fa-users"></i>
-                  </div>
-                <select class="form-control select2" name="gend" style="width: 100%;" autofocus >
-		<option value="Mr.">Mr.</option>
-					<option value="Miss.">Miss.</option>
-					<option value="Mrs.">Mrs.</option>
-	
-                </select>
-                  </div>
-                  </div> 
-              </div>
-              </div>
-	
-	
-	
+
+
+
+
+
+
       <div class="box-body">
           <div class="row">
             <div class="col-md-6">
@@ -197,11 +122,11 @@ include_once("sidebar.php");
                     <i class="fa fa-at"></i>
                   </div>
                 <input type="text" name="email" class="form-control pull-right"  >
-                  </div>  
+                  </div>
                   </div>
 				</div>
-			  
-			  
+
+
 			  <div class="form-group">
                 <label>	Address</label>
 				  <div class="input-group">
@@ -210,80 +135,80 @@ include_once("sidebar.php");
                   </div>
                 <input type="text" name="address" class="form-control pull-right"  >
                   </div>
-                  </div> 
+                  </div>
               </div>
               </div>
-	
-		
-	
-	
+
+
+
+
 	<div class="box-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Engine Number</label>
+                <label>User Name</label>
                  <div class="input-group">
 				   <div class="input-group-addon">
-                    <i class="fa fa-gears"></i>
+                    <i class="fa fa-user"></i>
                   </div>
-                <input type="text" name="engine_no" class="form-control pull-right"  >
-                  </div>  
+                <input type="text" name="user_name" class="form-control pull-right"  >
+                  </div>
                   </div>
 				</div>
-			  
-			  
+
+
 			  <div class="form-group">
-                <label>	Chassis No</label>
+                <label>Password</label>
 				  <div class="input-group">
 				   <div class="input-group-addon">
-                    <i class="fa fa-code-fork"></i>
+                    <i class="">******</i>
                   </div>
-                <input type="text" name="chassis_no" class="form-control pull-right"  >
+                <input type="text" name="password" class="form-control pull-right"  >
                   </div>
-                  </div> 
+                  </div>
               </div>
               </div>
-	
-	
-	
-	
+
+
+
+
 	<div class="box-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>Bye Date</label>
+                <label>1st KG Price</label>
                  <div class="input-group">
 				   <div class="input-group-addon">
-                    <i class="fa fa-calendar"></i>
+                    <i class="fa fa-balance-scale"></i>
                   </div>
-                <input type="text" name="bye_date" class="form-control pull-right" data-inputmask='"mask": "9999-99-99"' data-mask  >
-                  </div>  
+                <input type="text" name="fst" class="form-control pull-right"   >
+                  </div>
                   </div>
 				</div>
 			  <div class="form-group">
-                <label>	Color</label>
+                <label>2end KG Price</label>
 				  <div class="input-group">
 				   <div class="input-group-addon">
-                    <i class="fa fa-paint-brush"></i>
+                    <i class="fa fa-balance-scale"></i>
                   </div>
-                <input type="text" name="color" class="form-control pull-right"  >
+                <input type="text" name="send" class="form-control pull-right"  >
                   </div>
-                  </div> 
+                  </div>
               </div>
               </div>
-		  
+
 			  <input class="btn btn-info" type="submit" value="Submit" >
-			  
+
 			  </form>
           <!-- /.box -->
 
         </div>
         <!-- /.col (left) -->
-       
 
-        
+
+
             <!-- /.box-body -->
-            
+
             </div>
           </div>
           <!-- /.box -->
@@ -295,7 +220,7 @@ include_once("sidebar.php");
     </section>
     <!-- /.content -->
   </div>
-  
+
   <!-- /.content-wrapper -->
     <?php
   include("dounbr.php");

@@ -254,7 +254,7 @@ else{
 
           <h3 class="box-title">Order List</h3>
 
-
+<a href="cus_order_add.php"> <button type="button" class="btn btn-lg btn-success full-centre"> NEW Order </button></a>
  <table id="example1" class="table table-bordered table-striped">
 
                 <thead>
