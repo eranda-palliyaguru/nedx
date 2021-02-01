@@ -260,7 +260,7 @@ include_once("sidebar.php");
                     <label>
 					<input type="hidden" name="fr" value="0">
                       <input type="checkbox" name="fr" value="1">
-                      Frangible
+                      Fragile
                     </label>
                   </div>
 			  <input class="btn btn-danger" type="submit" value="Submit" >
