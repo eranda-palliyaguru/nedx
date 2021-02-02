@@ -33,7 +33,9 @@ include_once("sidebar.php");
 if($r =='user'){
 header("location: index2.php");
 }
-
+if($r =='ride'){
+header("location: index3.php");
+}
 ?>
 
 

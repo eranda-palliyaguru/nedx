@@ -333,68 +333,45 @@ else{
 
       <!-- SELECT2 EXAMPLE -->
 
-      <div class="box box-info">
+      <div class="box box-success">
 
         <div class="box-header with-border">
 
-          <h3 class="box-title">Order List</h3>
+          <h3 class="box-title">PICK Order List</h3>
 
-<a href="cus_order_add.php"> <button type="button" class="btn btn-lg btn-success full-centre"> NEW Order </button></a>
+
  <table id="example1" class="table table-bordered table-striped">
-
                 <thead>
                 <tr>
                   <th>Order Id</th>
-				 <th>Customer Name</th>
-					<th>Phone Number</th>
+				 <th>Merchant Name</th>
 				  <th>Address</th>
-				<th>Amount</th>
-            
-                </tr>
-
-                </thead>
-
-                <tbody>
+          <th>Customer Name</th>
+				<th>#</th>
+        </tr>
+        </thead>
+        <tbody>
 				<?php
 
-   $result = $db->prepare("SELECT * FROM pick_order WHERE pick_id='$cus_id'  ");
+   $result = $db->prepare("SELECT * FROM pick_order WHERE action='0'  ");
 				$result->bindParam(':userid', $date);
                 $result->execute();
                 for($i=0; $row = $result->fetch(); $i++){
-
-
-
-
 			?>
                 <tr>
 				  <td><?php echo $row['id'];?></td>
-				  <td><?php echo $row['cus_name'];?></td>
-                  <td><?php echo $row['contact_no'];?></td>
-                  <td><?php echo $row['address'];?></td>
+				  <td><?php echo $row['pick_name'];?></td>
 
-				<td><?php echo $row['amount'];?></td>
-
-
-
-
+                  <td><?php echo $row['pick_address'];?></td>
+ <td><?php echo $row['cus_name'];?></td>
+				<td><a href="sales.php?id=<?php echo $row['id'];?>"><button class="btn btn-info">Bill</button></a></td>
 				   <?php
 
 				}
 
 				?>
                 </tr>
-
-
                 </tbody>
-                <tfoot>
-
-
-
-
-
-
-
-                </tfoot>
               </table>
 
 
@@ -404,6 +381,52 @@ else{
 
 
 
+            <div class="box box-danger">
+
+              <div class="box-header with-border">
+
+                <h3 class="box-title">Delivery Order List</h3>
+
+
+       <table id="example1" class="table table-bordered table-striped">
+                      <thead>
+                      <tr>
+                        <th>Order Id</th>
+      				 <th>Merchant Name</th>
+               <th>Customer Name</th>
+      				  <th>Address</th>
+                <th>Phone No.</th>
+      				<th>#</th>
+              </tr>
+              </thead>
+              <tbody>
+      				<?php
+
+         $result = $db->prepare("SELECT * FROM pick_order WHERE action='1'  ");
+      				$result->bindParam(':userid', $date);
+                      $result->execute();
+                      for($i=0; $row = $result->fetch(); $i++){
+      			?>
+                      <tr>
+      				  <td><?php echo $row['id'];?></td>
+      				  <td><?php echo $row['pick_name'];?></td>
+ <td><?php echo $row['cus_name'];?></td>
+                        <td><?php echo $row['address'];?></td>
+       <td><?php echo $row['contact_no'];?></td>
+      				<td><a href="deliver.php?id=<?php echo $row['id'];?>"><button class="btn btn-primary">Deliver</button></a></td>
+      				   <?php
+
+      				}
+
+      				?>
+                      </tr>
+                      </tbody>
+                    </table>
+
+
+      		  </div>
+
+      		  </div>
 
 
 
