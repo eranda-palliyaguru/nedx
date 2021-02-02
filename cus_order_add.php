@@ -170,8 +170,8 @@ include_once("sidebar.php");
   <select class="form-control select2" name="id" style="width: 100%;" onchange="showRSS(this.value)" autofocus >
 		<option value="0"> Select Customer </option>
 	  <option value="0"> New Customer </option>
-				  <?php
-                $result = $db->prepare("SELECT * FROM customer ");
+				  <?php $pick_id=$_SESSION['MEMBER_ID'];
+                $result = $db->prepare("SELECT * FROM customer WHERE pick_id='$pick_id' ");
 		$result->bindParam(':userid', $res);
 		$result->execute();
 		for($i=0; $row = $result->fetch(); $i++){

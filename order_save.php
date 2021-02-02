@@ -21,9 +21,9 @@ $address=str_replace(",","<br>",$address);
 $p_address=str_replace(",","<br>",$p_address);
 
 if($id=="0"){
-$sql = "INSERT INTO customer (cus_name,contact_no,address) VALUES (:a,:b,:c)";
+$sql = "INSERT INTO customer (cus_name,contact_no,address,pick_id) VALUES (:a,:b,:c,:d)";
 $ql = $db->prepare($sql);
-$ql->execute(array(':a'=>$name,':b'=>$contact,':c'=>$address));
+$ql->execute(array(':a'=>$name,':b'=>$contact,':c'=>$address,':d'=>$p_id));
 
 $result1 = $db->prepare("SELECT * FROM customer   ORDER by customer_id DESC limit 0,1 ");
 		$result1->bindParam(':userid', $res);
