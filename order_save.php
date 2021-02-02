@@ -53,9 +53,34 @@ $f="1";
 $date=date("Y-m-d");
 $time=date("h.i");
 
-$sql="INSERT INTO pick_order (cus_name,cus_id,contact_no,address,pick_name,pick_address,pick_id,frangible,liquid,date,s_time) VALUES (:a,:b,:c,:d,:e,:f,:g,:h,:i,:j,:k)";
+$sql="INSERT INTO pick_order (cus_name,cus_id,contact_no,address,pick_name,pick_address,pick_id,date,s_time) VALUES (:a,:b,:c,:d,:e,:f,:g,:j,:k)";
 $ql=$db->prepare($sql);
-$ql->execute(array(':a'=>$name,':b'=>$id,':c'=>$contact,':d'=>$address,':e'=>$p_name,':f'=>$p_address,':g'=>$p_id,':h'=>$fr,':i'=>$liquid,':j'=>$date,':k'=>$time));
+$ql->execute(array(':a'=>$name,':b'=>$id,':c'=>$contact,':d'=>$address,':e'=>$p_name,':f'=>$p_address,':g'=>$p_id,':j'=>$date,':k'=>$time));
 
+
+$result1 = $db->prepare("SELECT * FROM pick_order where pick_id='$p_id'  ORDER by id DESC limit 0,1 ");
+  $result1->bindParam(':userid', $res);
+  $result1->execute();
+  for($i=0; $row1 = $result1->fetch(); $i++){
+  $order_id=$row1['id'];
+  }
+
+
+$result1 = $db->prepare("SELECT * FROM delivery_type ");
+		$result1->bindParam(':userid', $res);
+		$result1->execute();
+		for($i=0; $row1 = $result1->fetch(); $i++){
+    	$name=$row1['name'];
+		$id=$row1['id'];
+
+$type_id=$_POST[$id];
+
+if ($type_id=='1') {
+  $sql = "INSERT INTO delivery_type_recode (name,type_id,order_id) VALUES (?,?,?)";
+  $q = $db->prepare($sql);
+  $q->execute(array($name,$id,$order_id));
+}
+
+}
 header("location: index.php");
 ?>

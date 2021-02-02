@@ -1,7 +1,7 @@
 <div class="wrapper">
- 
-		  
-		  
+
+
+
   <header class="main-header">
     <!-- Logo -->
     <a href="index.php" class="logo">
@@ -20,29 +20,29 @@
         <span class="icon-bar"></span>
       </a>
 
-	  
-	  
+
+
 	   <?php
 		include('connect.php');
  date_default_timezone_set("Asia/Colombo");
 
-                  $date =  date("Y/m/d");					
-			
-				
-				
-				
-				
-				
-				
-				
+                  $date =  date("Y/m/d");
+
+
+
+
+
+
+
+
 				$count=0;
-				
-				
+
+
 			?>
-	  
-	  
-	  
-	  
+
+
+
+
       <div class="navbar-custom-menu">
         <ul class="nav navbar-nav">
           <!-- Messages: style can be found in dropdown.less-->
@@ -56,42 +56,42 @@
               <li>
                 <!-- inner menu: contains the actual data -->
                 <ul class="menu">
-				
-				
-				
+
+
+
                   <li>
                     <a href="pay_rp.php?d1=<?php echo $date;?>&d2=<?php echo $date;?>">
                       <i class="fa fa-user text-green"></i> <?php// echo $row['name']; ?>
-					  
+
 					  </a>
-                    
+
                   </li>
                   <!-- end message -->
-                    
+
 				<?php  ?>
-					
-					
-					
+
+
+
                 </ul>
               </li>
               <li class="footer"><a href="#">See All Messages</a></li>
             </ul>
           </li>
           <!-- Notifications: style can be found in dropdown.less -->
-		  
-		  
+
+
 		  <?php
-		  
+
 		include('connect.php');
  date_default_timezone_set("Asia/Colombo");
-                  $date =  date("Y/m/d");		
-				$rowcount123 = 0;			
+                  $date =  date("Y/m/d");
+				$rowcount123 = 0;
 				$ttre = 0;
                 //$tre=$ttre-$rowcount123;
 				$rv=0;
-				$rate=0;				
+				$rate=0;
 			?>
-  
+
           <li class="dropdown notifications-menu">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
               <i class="fa fa-credit-card"></i>
@@ -101,18 +101,18 @@
               <li class="header">You have <?php echo $rv; ?> notifications</li>
               <li>
                 <!-- inner menu: contains the actual data -->
-                <ul class="menu">           
+                <ul class="menu">
   <?php
 		include('connect.php');
  date_default_timezone_set("Asia/Colombo");
-                 $date =  date("Y/m/d");					
-				$rate=0;	
+                 $date =  date("Y/m/d");
+				$rate=0;
 			?>
                   <li>
                     <a href="delay payment.php?id=day">
                       <i class="fa fa-user text-yellow"></i> <?php echo $row['cus_name']; ?>
                     </a>
-                  </li>  
+                  </li>
                 </ul>
               </li>
               <li class="footer"><a href="delay payment.php?id=week">View all</a></li>
@@ -163,7 +163,7 @@
                         Some task I need to do
                         <small class="pull-right">60%</small>
                       </h3>
-                      
+
                     </a>
                   </li>
                   <!-- end task item -->
@@ -242,7 +242,7 @@
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
-		
+
       <div class="user-panel">
         <div class="pull-left image">
           <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
@@ -270,22 +270,11 @@
           <a  href="index.php">
             <i class="fa fa-dashboard"></i> <span>Dashboard</span>
             <span class="pull-right-container">
-			
+
             </span>
           </a>
-        </li> 
-		  <li class="treeview">
-          <a href="#">
-            <i class="fa fa-group"></i> <span>Customer</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-           </span>
-        </a>
-          <ul class="treeview-menu">
-            <li><a href="cus.php"><i class="fa fa-circle-o text-yellow"></i> Add customer</a></li>
-            <li><a href="cus_view.php"><i class="fa fa-circle-o text-aqua"></i> View customer</a></li>
-          </ul>
         </li>
+
 		   <li class="treeview">
           <a href="#">
             <i class="fa fa-wrench"></i> <span>Pick Place</span>
@@ -294,19 +283,27 @@
            </span>
         </a>
           <ul class="treeview-menu">
-            <li><a href="pick.php"><i class="fa fa-circle-o text-yellow"></i> Add Pick Place</a></li>
-            <li><a href="pick_view.php"><i class="fa fa-circle-o text-aqua"></i> View Pick Place</a></li>
+            <li><a href="cus.php"><i class="fa fa-circle-o text-yellow"></i> Add Pick Place</a></li>
+            <li><a href="cus_view.php"><i class="fa fa-circle-o text-aqua"></i> View Pick Place</a></li>
           </ul>
         </li>
-	
+
 		  <li>
           <a  href="order_add.php">
             <i class="fa fa-dashboard"></i> <span>NEW Order</span>
             <span class="pull-right-container">
             </span>
           </a>
-        </li> 
-		  
+        </li>
+
+        <li>
+            <a  href="delivery_type.php">
+              <i class="fa fa-dashboard"></i> <span>Delivery Type</span>
+              <span class="pull-right-container">
+              </span>
+            </a>
+          </li>
+
 		  <li class="treeview">
           <a href="#">
             <i class="fa fa-line-chart"></i> <span>Report</span>
@@ -319,6 +316,6 @@
           </ul>
         </li>
           </ul>
-        </li> 
+        </li>
       </ul>
     </section>
