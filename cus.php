@@ -48,13 +48,13 @@ include_once("sidebar.php");
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Customer Form
+        Merchant Form
         <small>Preview</small>
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
         <li><a href="#">Forms</a></li>
-        <li class="active">Customer Form</li>
+        <li class="active">Merchant Form</li>
       </ol>
     </section>
 
@@ -64,7 +64,7 @@ include_once("sidebar.php");
       <!-- SELECT2 EXAMPLE -->
       <div class="box box-info">
         <div class="box-header with-border">
-          <h3 class="box-title">Add Customer</h3>
+          <h3 class="box-title">Add Merchant</h3>
 
 
         <!-- /.box-header -->
@@ -84,7 +84,7 @@ include_once("sidebar.php");
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label>	Customer Name</label>
+                <label>	Merchant Name</label>
 				  <div class="input-group">
 				   <div class="input-group-addon">
                     <i class="fa fa-user"></i>
