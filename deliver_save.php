@@ -7,7 +7,7 @@ $id=$_POST['id'];
 
 
 $action="2";
-$time=date('H.a');
+$time=date('H.i');
 $date=date('Y-m-d');
 
 $sql = "UPDATE pick_order

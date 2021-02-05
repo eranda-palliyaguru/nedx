@@ -33,7 +33,7 @@ date_default_timezone_set("Asia/Colombo");
         <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="#">Dashboard </a></li>
-            <li><a href="cus_order_add.php">New Orders</a></li>
+            
 
           </ul>
 
