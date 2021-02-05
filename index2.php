@@ -5,6 +5,8 @@
 <?php
 include("head.php");
 include("connect.php");
+
+
 ?>
 
 <body class="hold-transition skin-blue layout-top-nav">
@@ -113,6 +115,10 @@ if($r =='Cashier'){
 
 include_once("sidebar2.php");
 
+}
+
+if($r =='ride'){
+header("location: index3.php");
 }
 
 if($r =='user'){
@@ -349,7 +355,7 @@ else{
 					<th>Phone Number</th>
 				  <th>Address</th>
 				<th>Amount</th>
-            
+
                 </tr>
 
                 </thead>
