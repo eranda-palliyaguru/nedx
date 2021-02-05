@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
-<?php 
+<?php
 include("head.php");
 include("connect.php");
 ?>
 <body class="hold-transition skin-blue sidebar-mini">
-<?php 
+<?php
 include_once("auth.php");
 $r=$_SESSION['SESS_LAST_NAME'];
 
@@ -28,11 +28,11 @@ include_once("sidebar.php");
     <script src="datepicker.ui.min.js"
         type="text/javascript"></script>
  <script type="text/javascript">
-     
+
 		 $(function(){
         $("#datepicker1").datepicker({ dateFormat: 'yy/mm/dd' });
         $("#datepicker2").datepicker({ dateFormat: 'yy/mm/dd' });
-       
+
     });
 
     </script>
@@ -66,27 +66,27 @@ include_once("sidebar.php");
         <div class="box-header with-border">
           <h3 class="box-title">Customer</h3>
 
-          
+
         <!-- /.box-header -->
 		<div class="form-group">
-              
-				
+
+
         <div class="box-body">
     <!-- /.box -->
-<div class="form-group">		
+<div class="form-group">
 	<div class="box-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                
+
 				  <div class="input-group">
 				   <div class="input-group-addon">
-                    <label>Customer	Name</label>					   
+                    <label>Customer	Name</label>
                   </div>
   <select class="form-control select2" name="id" style="width: 100%;" onchange="showRSS(this.value)" autofocus >
 		<option value="0"> Select Customer </option>
 	  <option value="0"> New Customer </option>
-				  <?php 
+				  <?php
                 $result = $db->prepare("SELECT * FROM customer ");
 		$result->bindParam(':userid', $res);
 		$result->execute();
@@ -100,26 +100,26 @@ include_once("sidebar.php");
                   </div>
                   </div>
 				</div>
-			  
-			  <div id="rssOutput">  	
+
+			  <div id="rssOutput">
               </div>
-			  
-              </div>        
+
               </div>
-			
-			
-			
-			
-		
+              </div>
+
+
+
+
+
           <!-- /.box -->
 
         </div>
         <!-- /.col (left) -->
-       
 
-        
+
+
             <!-- /.box-body -->
-            
+
             </div>
           </div>
           <!-- /.box -->
@@ -129,31 +129,31 @@ include_once("sidebar.php");
       <!-- /.row -->
       <div class="box box-danger">
         <div class="box-header with-border">
-          <h3 class="box-title">Picking Place</h3>
+          <h3 class="box-title">Pickup location</h3>
 
-          
+
         <!-- /.box-header -->
 		<div class="form-group">
-              
-			
+
+
         <div class="box-body">
     <!-- /.box -->
-<div class="form-group">	
-	
+<div class="form-group">
+
 	<div class="box-body">
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                
+
 				  <div class="input-group">
 				   <div class="input-group-addon">
-                    <label>Picking Place</label>
-					   
+                    <label>Pickup location</label>
+
                   </div>
 <select class="form-control select2" name="p_id" style="width: 100%;" onchange="showPICK(this.value)" autofocus >
-		<option value="0"> Select Pick Place </option>
-	    <option value="0"> New Pick </option>
-				  <?php 
+		<option value="0"> Select Pickup location </option>
+	    <option value="0"> New Pickup location </option>
+				  <?php
                 $result = $db->prepare("SELECT * FROM pick_place ");
 		$result->bindParam(':userid', $res);
 		$result->execute();
@@ -167,20 +167,20 @@ include_once("sidebar.php");
                   </div>
                   </div>
 				</div>
-			  
-			  
-	 <div id="pickOutput"> 
-			  			  
+
+
+	 <div id="pickOutput">
+
 			</div>
-		     </div>        
+		     </div>
               </div>
-	
-	
+
+
 	<div class="checkbox">
                     <label>
 					<input type="hidden" name="liquid" value="0">
                       <input type="checkbox" name="liquid" value="1">
-						
+
                       Liquid
                     </label>
                   </div>
@@ -191,33 +191,33 @@ include_once("sidebar.php");
                       Frangible
                     </label>
                   </div>
-			  <input class="btn btn-danger" type="submit" value="Submit" >			  
-			  
-			
-			
-			
-		
+			  <input class="btn btn-danger" type="submit" value="Submit" >
+
+
+
+
+
           <!-- /.box -->
 
         </div>
         <!-- /.col (left) -->
-       
 
-        
+
+
             <!-- /.box-body -->
-            
+
             </div>
           </div>
-			
-		
+
+
     </section>
-	  
-	  
-	  
-	
-	  
-	  
-	</div>  
+
+
+
+
+
+
+	</div>
     <!-- /.content -->
   </div>
   </form>
@@ -328,10 +328,10 @@ include_once("sidebar.php");
       showInputs: false
     });
   });
-	
+
 	function showRSS(str) {
 
-  if (str.length==0) { 
+  if (str.length==0) {
     document.getElementById("rssOutput").innerHTML="";
     return;
   }
@@ -346,14 +346,14 @@ include_once("sidebar.php");
       document.getElementById("rssOutput").innerHTML=this.responseText;
     }
   }
- 
+
   xmlhttp.open("GET","getCUS.php?q="+str,true);
   xmlhttp.send();
 }
-	
+
 function showPICK(str) {
 
-  if (str.length==0) { 
+  if (str.length==0) {
     document.getElementById("pickOutput").innerHTML="";
     return;
   }
@@ -368,7 +368,7 @@ function showPICK(str) {
       document.getElementById("pickOutput").innerHTML=this.responseText;
     }
   }
- 
+
   xmlhttp.open("GET","getPICK.php?q="+str,true);
   xmlhttp.send();
 }

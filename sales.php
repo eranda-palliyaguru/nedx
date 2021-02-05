@@ -1,11 +1,11 @@
  <!DOCTYPE html>
 <html>
-<?php 
+<?php
 include("head.php");
 include("connect.php");
 ?>
 <body class="hold-transition skin-blue sidebar-mini">
-<?php 
+<?php
 include_once("auth.php");
 $r=$_SESSION['SESS_LAST_NAME'];
 
@@ -26,11 +26,11 @@ include_once("sidebar.php");
     <script src="datepicker.ui.min.js"
         type="text/javascript"></script>
  <script type="text/javascript">
-     
+
 		 $(function(){
         $("#datepicker1").datepicker({ dateFormat: 'yy/mm/dd' });
         $("#datepicker2").datepicker({ dateFormat: 'yy/mm/dd' });
-       
+
     });
 
     </script>
@@ -64,16 +64,16 @@ include_once("sidebar.php");
         <div class="box-header with-border">
           <h3 class="box-title">Add Weight</h3>
 
-          
+
         <!-- /.box-header -->
 		<div class="form-group">
-              
-		
-		
+
+
+
      <div class="box-body">
-		 
-		 
-		 
+
+
+
 	        <table id="example1" class="table table-bordered table-striped">
     <thead></thead>
                 <tbody>
@@ -85,21 +85,21 @@ include_once("sidebar.php");
 		<tr><th>Customer Name</th><td><?php echo $row1['cus_name'];?></td></tr>
 		<tr><th>Customer Address</th><td><?php echo $row1['address'];?></td></tr>
 	    <tr><th>Customer Contact No</th><td><?php echo $row1['contact_no'];?></td></tr>
-		<tr><th>Pick Plase</th><td><?php echo $row1['pick_name'];?></td></tr>
-		
-				<?php	}	?>	
+		<tr><th>Pickup location</th><td><?php echo $row1['pick_name'];?></td></tr>
+
+				<?php	}	?>
 	                </tbody>
-				   <tfoot>	
+				   <tfoot>
                 </tfoot>
-              </table>	 
-		 
-		 
-	<form method="post" action="save_kg.php"> 
+              </table>
+
+
+	<form method="post" action="save_kg.php">
 	<div class="box-body">
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">
-              
+
 				  <div class="input-group">
 				   <div class="input-group-addon">
                     <i class="fa fa-balance-scale"></i>
@@ -108,18 +108,18 @@ include_once("sidebar.php");
 				 <div class="input-group-addon">
                     KG
                   </div>
-			
+
                   </div>
                   </div>
 				</div>
 			  <input type="hidden" name="id" value="<?php echo $_GET['id']; ?>">
 			  <input class="btn btn-info" type="submit" value="Save" >
-			  
+
               </div>
-		</div>	
-		 </form>	
-		 
-		 
+		</div>
+		 </form>
+
+
           </div>
           <!-- /.box -->
         </div>
@@ -130,7 +130,7 @@ include_once("sidebar.php");
     </section>
     <!-- /.content -->
   </div>
-  
+
   <!-- /.content-wrapper -->
     <?php
   include("dounbr.php");
