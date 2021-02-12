@@ -213,8 +213,39 @@ include_once("sidebar.php");
       <!-- /.row -->
       <div class="box box-danger">
         <div class="box-header with-border">
-          <h3 class="box-title">Picking Place</h3>
+          <h3 class="box-title">Details</h3>
 
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+
+          <div class="input-group">
+           <div class="input-group-addon">
+                    <label>Pay Type</label>
+                  </div>
+          <select class="form-control select2" name="pay_type" style="width: 100%;" autofocus >
+          <option value="2"> Cash On Delivery </option>
+          <option value="1"> Pay by Merchant </option>
+          <option value="3"> Pay by Customer </option>
+          </select>
+                  </div>
+                  </div>
+          </div>
+
+
+          <div class="col-md-6">
+            <div class="form-group">
+
+        <div class="input-group">
+         <div class="input-group-addon">
+                  <label>Package Value</label>
+                </div>
+        <input class="form-control " name="value" style="width: 100%;" autofocus >
+
+                </div>
+                </div>
+        </div>
+              </div>
 
         <!-- /.box-header -->
 		<div class="form-group">

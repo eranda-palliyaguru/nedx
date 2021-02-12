@@ -13,8 +13,10 @@ $p_name=$_POST['pname'];
 $p_address=$_POST['paddress'];
 $p_contact=$_POST['pcontact'];
 
-$liquid=$_POST['liquid'];
-$fr=$_POST['fr'];
+
+
+$pay_type=$_POST['pay_type'];
+$value=$_POST['value'];
 
 
 $address=str_replace(",","<br>",$address);
@@ -53,9 +55,9 @@ $f="1";
 $date=date("Y-m-d");
 $time=date("h.i");
 
-$sql="INSERT INTO pick_order (cus_name,cus_id,contact_no,address,pick_name,pick_address,pick_id,date,s_time) VALUES (:a,:b,:c,:d,:e,:f,:g,:j,:k)";
+$sql="INSERT INTO pick_order (cus_name,cus_id,contact_no,address,pick_name,pick_address,pick_id,date,s_time,pay_type,value) VALUES (:a,:b,:c,:d,:e,:f,:g,:j,:k,:pay,:val)";
 $ql=$db->prepare($sql);
-$ql->execute(array(':a'=>$name,':b'=>$id,':c'=>$contact,':d'=>$address,':e'=>$p_name,':f'=>$p_address,':g'=>$p_id,':j'=>$date,':k'=>$time));
+$ql->execute(array(':a'=>$name,':b'=>$id,':c'=>$contact,':d'=>$address,':e'=>$p_name,':f'=>$p_address,':g'=>$p_id,':j'=>$date,':k'=>$time,':pay'=>$pay_type,':val'=>$value));
 
 
 $result1 = $db->prepare("SELECT * FROM pick_order where pick_id='$p_id'  ORDER by id DESC limit 0,1 ");
